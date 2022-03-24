@@ -1,0 +1,6 @@
+@import '../../styles/themes/theme.scss';
+::ng-deep .ngx-charts { 
+    text{
+        fill: $text-color !important; 
+    }
+}

@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import './app/styles/themes/theme.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    color: $text-color;
+    background-color: $body-bg;
+}
+
+svg {
+    color: $svg-color;
+}
+
+svg {
+    height: inherit !important;
+    width: inherit !important;
+    color: inherit !important;
+}
+
+input{
+    margin-left: 5px;
+    padding: 5px;
+}
+
+button{
+    padding: 10px;
+}
+
+.modal {
+    transition: all 500ms ease-in-out;
+}

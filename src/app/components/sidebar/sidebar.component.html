@@ -1,0 +1,38 @@
+<aside>
+    <!-- <div class="sidebar-toggle-wrapper">
+        <div class="sidebar-toggle-icon" appIcon [iconName]="'doubleLeftArrow'" [dimensions]="'20px'"></div>
+    </div> -->
+    <div class="logo" [routerLink]="['/']">
+    </div>
+    <ng-container *ngFor="let menuItem of sidebarMenu | keyvalue: defaultOrder">
+        <div class="parent-dropdown-item" [ngClass]="{'active': menuItem.value?.active }"
+            (click)="collapseDropdown($event, menuItem.key,menuItem.value?.childItems?.length)">
+            <span>{{ menuItem.key }}</span>
+            <span *ngIf="menuItem.value?.childItems?.length" class="down-arrow" appIcon [iconName]="'downArrowIcon'"></span>
+        </div>
+
+        <ng-container *ngIf="menuItem.value?.childItems?.length">
+            <div class="child-item-container">
+                <div [routerLink]="[item.path]" *ngFor="let item of menuItem.value?.childItems" class="child-item">{{ item.name }}</div>
+            </div>
+        </ng-container>
+    </ng-container>
+</aside>
+
+<!-- Static structure of sidebar DOM layout  -->
+<!-- <div class="parent-dropdown-item" [ngClass]="{'active': removeActiveClass === 0}" (click)="collapseDropdown($event,0)">
+            Charts
+        </div>
+        <div class="child-dropdown-item">
+            <div class="bar-chart">Bar Chart</div>
+            <div class="line-chart">Line Chart</div>
+            <div class="pie-chart">Pie Chart</div>
+        </div>
+        <div class="parent-dropdown-item" [ngClass]="{'active': removeActiveClass === 1}" (click)="collapseDropdown($event,1)">
+            Share
+        </div>
+        <div class="child-dropdown-item">
+            <div class="facebook">Facebook</div>
+            <div class="instagram">Instagram</div>
+            <div class="linkedin">Linkedin</div>
+        </div> -->

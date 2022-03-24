@@ -1,0 +1,14 @@
+@import '../../styles/themes/theme.scss';
+
+::ng-deep .ngx-charts { 
+    text{
+        fill: $text-color !important; 
+    }
+}
+
+::ng-deep ngx-charts-legend{
+    .chart-legend .legend-label-text{
+        // width: 100% !important;
+        overflow: visible !important;
+    }
+}

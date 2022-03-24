@@ -1,0 +1,11 @@
+<div class="container modal">
+    <h2>{{title}}</h2>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="name" name="name">
+    </div>
+
+    <button (click)="confirm()">Submit</button>
+
+    <a (click)="closeMe()" class="close">close</a>
+</div>

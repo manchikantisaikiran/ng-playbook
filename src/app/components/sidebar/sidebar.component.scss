@@ -1,0 +1,72 @@
+@import '../../styles/themes/theme.scss';
+
+aside {
+    padding: 10px;
+    // height: calc(100vh - 60px);
+    height: 100%;
+    text-transform: capitalize;
+    background-color: $sidebar-bg;
+    // position: relative;
+
+    .sidebar-toggle-wrapper{
+        // position: absolute;
+        padding: 5px;
+        // right: -15px;
+        display: flex;
+        justify-content: flex-end;
+        .sidebar-toggle-icon{
+            border-radius: 50%;
+            background-color: $settings-container-bg;
+            color: $body-bg;
+            height: 20px;
+            width: 20px;
+        }
+    }
+
+    .logo{
+        background: url('https://api.iconify.design/vscode-icons/file-type-angular.svg?width=40&height=40');
+        height: 40px;
+        width: 40px;
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+
+    .parent-dropdown-item{
+        position: relative;
+        padding: 0.4rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        .down-arrow{
+            position: absolute;
+            right: 10px;
+            width: 1rem;
+            height: 1rem;
+            transition: transform 300ms ease-in-out;
+        }
+
+        &.active + .child-item-container{
+            max-height: 500px;
+        }
+
+        &.active{
+            .down-arrow{
+                transform: rotate(-180deg);
+            }
+        }
+    }
+    
+
+    .child-item-container{
+        max-height: 0;
+        overflow: hidden;
+        transition: all 300ms ease-in-out;
+        div {
+            cursor: pointer;
+            padding: 0.5rem;
+            padding-left: 1rem;
+        }
+    }
+}

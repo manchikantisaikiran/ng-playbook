@@ -1,0 +1,117 @@
+<h3>Reactive forms in angular</h3>
+
+<!-- <h4>Form Controls</h4>
+<label for="name">Name: </label>
+<input id="name" type="text" [formControl]="name">
+
+<p>Value: {{ name.value }}</p> -->
+
+
+<!-- <h4>Form Groups</h4>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstName">
+
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName="lastName">
+
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form> -->
+
+<!-- <h4>Nested form groups</h4>
+
+<div [formGroup]="profileForm1">
+    <h2>Address</h2>
+
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstName">
+
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName="lastName">
+
+    <div formGroupName="address">
+        <label for="street">Street: </label>
+        <input id="street" type="text" formControlName="street">
+
+        <label for="city">City: </label>
+        <input id="city" type="text" formControlName="city">
+
+        <label for="state">State: </label>
+        <input id="state" type="text" formControlName="state">
+
+        <label for="zip">Zip Code: </label>
+        <input id="zip" type="text" formControlName="zip">
+
+        <button type="button" (click)="updateProfileForm1()">Update Profile</button>
+    </div>
+</div> -->
+
+<div>
+    <h2>Dynamic forms</h2>
+    <div [formGroup]="profileFormBuilder">
+        
+        <div>
+            <label for="first-name">First Name: </label>
+            <input id="first-name" type="text" formControlName="firstName">
+        </div>
+
+        <div>
+            <label for="last-name">Last Name: </label>
+            <input id="last-name" type="text" formControlName="lastName">
+        </div>
+
+        <div>
+            <label for="last-name">Password: </label>
+            <input id="last-name" type="text" formControlName="password">
+        </div>
+        
+        <h2>Address</h2>
+        <div formGroupName="address">
+            <div>
+                <label for="street">Street: </label>
+                <input id="street" type="text" formControlName="street">
+            </div>
+
+            <div>
+                <label for="city">City: </label>
+                <input id="city" type="text" formControlName="city">
+            </div>
+
+            <div>
+                <label for="state">State: </label>
+                <input id="state" type="text" formControlName="state">
+            </div>
+
+            <div>
+                <label for="zip">Zip Code: </label>
+                <input id="zip" type="number" formControlName="zip">
+            </div>
+
+        </div>
+        <div formArrayName="refer">
+            <h2>Referals</h2>
+            <button type="button" (click)="addReferers()"> Add any referal</button>
+
+            <div *ngFor="let referer of referers.controls; let i=index">
+                <label for="refer-{{ i }}">Referal email:</label>
+                <input id="refer-{{ i }}" type="text" [formControlName]="i">
+            </div>
+        </div>
+    </div>
+    <button type="button" (click)="updateProfileForm1()">Update Profile</button>
+</div>
+
+<div>
+    <h3>Values</h3>
+    <div>First Name: {{profileFormBuilder.controls.firstName.value}}</div>
+    <div>Last Name: {{profileFormBuilder.controls.lastName.value}}</div>
+    <div>Street: {{formAddress.controls?.street?.value}}</div>
+    <div>City: {{formAddress.controls?.city?.value}}</div>
+    <div>State: {{formAddress.controls?.state?.value}}</div>
+    <div>Zip code: {{formAddress.controls?.zip?.value}}</div>
+    <ng-container *ngFor="let el of referers.controls; let i = index">
+        <div>referal {{i+1}}: {{el.value}}</div>
+    </ng-container>
+    <div>Is form valid: {{profileFormBuilder.status}}</div>
+</div>

@@ -1,0 +1,32 @@
+<header>
+    <div class="left">
+        <div class="item" (click)="toggleSidebar.emit()">
+            <div class="menu-icon" appIcon [iconName]="'menuIcon'"></div>
+        </div>
+        <div class="item logo" [routerLink]="['/']"></div>
+    </div>
+    <div class="center">
+        <div class="item">
+            About
+        </div>
+        <div class="item">
+            Services
+        </div>
+        <div class="item">
+            Contact
+        </div>
+    </div>
+    <div class="right">
+        <div class="item" (click)="toggleSettingsContainerState.emit()">
+            <div class="settings-icon" appIcon [iconName]="'settingsIcon'"></div>
+        </div>
+        <div class="item theme-icons" (click)="toggleTheme()">
+            <ng-container *ngIf="inLightMode else darkMode">
+                <div class="moon-icon" appIcon [iconName]="'moonIcon'"></div>
+            </ng-container>
+            <ng-template #darkMode>
+                <div class="sun-icon" appIcon [iconName]="'sunIcon'"></div>
+            </ng-template>
+        </div>
+    </div>
+</header>

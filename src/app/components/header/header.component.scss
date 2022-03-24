@@ -1,0 +1,61 @@
+@import '../../styles/themes/theme.scss';
+
+header{
+    position: relative;
+    z-index: 100;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    height: 60px;
+    background: $header-bg;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    .left, .center, .right{
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    
+    .logo{
+        background: url('https://api.iconify.design/vscode-icons/file-type-angular.svg') no-repeat;
+        height: 20px;
+        width: 20px;
+    }
+
+    .left{
+        justify-self: flex-end;
+    }
+    
+    .right{
+        justify-self: flex-start;
+    }
+
+    .theme-icons{
+        cursor: pointer;
+    }
+
+    .item{
+        cursor: pointer;
+    }
+}
+
+.settings-container{
+    width: 250px;
+    height: calc(100vh - 60px);
+    padding: 1rem;
+    background-color: $settings-container-bg;
+    color: $settings-container-color;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    transition: transform 150ms ease-in-out;
+    transform: scale(0);
+    h2{
+        text-align: center;
+    }
+}

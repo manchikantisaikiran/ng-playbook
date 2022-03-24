@@ -1,0 +1,19 @@
+$header-bg: var(--header-bg);
+$sidebar-bg: var(--sidebar-bg);
+$svg-color: var(--svg-color);
+$text-color: var(--text-color);
+$body-bg: var(--body-bg);
+$settings-container-bg: var(--settings-container-bg);
+$settings-container-color: var(--settings-container-color);
+
+
+body[data-theme="dark"]{
+    --header-bg: #4a4a4a;
+    --sidebar-bg: #4a4a4a;
+    --body-bg: #212121;
+    --text-color: white;
+
+    --svg-color: white;
+    --settings-container-bg: rgba(255,255,255,0.8);
+    --settings-container-color: rgba(0,0,0);
+}
