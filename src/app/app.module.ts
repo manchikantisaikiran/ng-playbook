@@ -19,6 +19,8 @@ import { TemplateDrivenFormsComponent } from './pages/template-driven-forms/temp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TablesComponent } from './components/tables/tables.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,13 @@ import { ModalComponent } from './components/modal/modal.component';
     NgxChartsModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule.withConfig({ disableAnimations: false})
+    BrowserAnimationsModule.withConfig({ disableAnimations: false}),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
   ],
